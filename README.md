@@ -1,24 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Resources on U2F
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Yubico implementation guide https://developers.yubico.com/U2F/Libraries/Using_a_library.html
+- Google Reference Client-Side code/polyfill https://raw.githubusercontent.com/fido-alliance/google-u2f-ref-code/master/u2f-gae-demo/war/js/u2f-api.js
