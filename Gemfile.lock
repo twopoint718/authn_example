@@ -68,6 +68,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
+    authentication-zero (2.15.9)
     bindex (0.8.1)
     bootsnap (1.15.0)
       msgpack (~> 1.2)
@@ -207,6 +208,7 @@ PLATFORMS
   arm64-darwin-21
 
 DEPENDENCIES
+  authentication-zero (~> 2.15)
   bootsnap
   capybara
   debug
