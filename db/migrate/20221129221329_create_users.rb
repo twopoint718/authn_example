@@ -6,6 +6,8 @@ class CreateUsers < ActiveRecord::Migration[7.0]
 
       t.boolean :verified, null: false, default: false
 
+      t.string :otp_secret
+
       t.timestamps
     end
 

@@ -15,10 +15,16 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
 
     if user && user.authenticate(params[:password])
-      @session = user.sessions.create!
-      cookies.signed.permanent[:session_token] = { value: @session.id, httponly: true }
+      if user.otp_secret
+        signed_id = user.signed_id(purpose: :authentication_challenge, expires_in: 20.minutes)
 
-      redirect_to root_path, notice: "Signed in successfully"
+        redirect_to new_two_factor_authentication_challenge_path(token: signed_id)
+      else
+        @session = user.sessions.create!
+        cookies.signed.permanent[:session_token] = { value: @session.id, httponly: true }
+
+        redirect_to root_path, notice: "Signed in successfully"
+      end
     else
       redirect_to sign_in_path(email_hint: params[:email]), alert: "That email or password is incorrect"
     end
